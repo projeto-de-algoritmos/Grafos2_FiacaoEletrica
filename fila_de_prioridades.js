@@ -57,10 +57,10 @@ class Heap {
         // O(log n) enquanto filho nao for o head, e o seu pai for mais custoso, ele sobe no heap.
         while((filho > 0) && (custo_filho <= custo_pai)) {
   
-            [this.fila_de_prioridades[pai], this.fila_de_prioridades[filho]] = [this.fila_de_prioridades[filho], this.fila_de_prioridades[pai]] // troca de posicao no array entre pai e filho.   
-            // como houve alteracao no array é necessario atualizar as referencias ("ponteiros") para manter a coesao.
+            // como haverá alteracao no array é necessario atualizar as referencias ("ponteiros") para manter a coesao.
             this.atualizar_referencia(filho, pai); // a posiçãoo do filho recebe a posicao do pai ...
             this.atualizar_referencia(pai, filho); // ... e vice versa.
+            [this.fila_de_prioridades[pai], this.fila_de_prioridades[filho]] = [this.fila_de_prioridades[filho], this.fila_de_prioridades[pai]] // troca de posicao no array entre pai e filho.   
             
             filho = pai; // atribuições para continuar  o processo de subida
             pai = Math.floor((pai - 1) / 2);
@@ -72,6 +72,56 @@ class Heap {
             custo_filho = this.fila_de_prioridades[filho]['custo'];// atualizando custo do novo filho
             
         }                  
+    }
+    // complexidade O(log n)
+    remover_o_primeiro() { 
+  
+        delete this.estrutura_auxiliar[this.fila_de_prioridades[0]['id']]; // retirando da estrutura auxiliar onde era guardada sua posição.
+        let elemento_retirado = this.fila_de_prioridades[0]['id']; // salvando o elemento a ser retirado na variavel elemento_retirado
+        let elemento = this.fila_de_prioridades.pop(); // retirando o ultimo elemento do array
+        this.quantidade--;
+
+
+        if(this.fila_de_prioridades.length === 0) { // se apos a retirada nao houverem elementos retorna o elemento retirado
+          return elemento_retirado;
+        }
+
+        // processo de trazer o ultimo elemento do array para o head (primeiro elemento do array)
+        this.fila_de_prioridades[0]['id'] = elemento['id'];
+        this.fila_de_prioridades[0]['custo'] = elemento['custo'];
+        this.estrutura_auxiliar[elemento['id']]['posicao'] = 0; // atualizando a referencia
+        //
+        
+        // abaixo começa o processo de descer no heap até achar sua posicao
+        let pai = 0;
+        let filho = pai * 2 + 1; // selecionando o filho mais à esquerda
+        
+        let N = this.fila_de_prioridades.length;
+
+        while(filho < N) {
+            if(filho < (N - 1)) { // verificar se o vertice tem um irmão
+                // se sim compara os custos dos dois e seleciona o de menor
+                if(this.fila_de_prioridades[(pai * 2 + 1)]['custo'] > this.fila_de_prioridades[(pai * 2 + 2)]['custo']) {
+                    // como o padrao ja ta o filho da esquerda se o filho da direita tiver um custo menor, é so dar um ++.
+                    filho++;
+                }
+            }
+
+          if(this.fila_de_prioridades[pai]['custo'] < this.fila_de_prioridades[filho]['custo'])   
+                break;
+          
+          this.atualizar_referencia(filho, pai); // a posiçãoo do filho recebe a posicao do pai ...
+          this.atualizar_referencia(pai, filho); // ... e vice versa.
+          [this.fila_de_prioridades[pai], this.fila_de_prioridades[filho]] = [this.fila_de_prioridades[filho], this.fila_de_prioridades[pai]] // swap
+            
+          pai = filho;
+          
+          filho = pai * 2 + 1;
+                      
+        }
+      
+      return elemento_retirado;
+    
     }
     
     imprimir() {
