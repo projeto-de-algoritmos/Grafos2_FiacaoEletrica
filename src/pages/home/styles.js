@@ -10,7 +10,7 @@ export const Container = styled.div`
 export const Menu = styled.div`
   display: flex;
   flex-direction: column;
-  width: 30%;
+  width: 20%;
   button {
     margin: 5px 0 0;
     height: 44px;
@@ -29,7 +29,31 @@ export const Menu = styled.div`
   }
 `;
 export const Text = styled.p`
+  margin-bottom: 20px;
   font-size: 16px;
+  color: #fff;
+  padding: 4px;
+  text-align: center;
+`;
+export const Text0 = styled.p`
+  margin-bottom: 80px;
+  font-size: 30px;
+  color: #fff;
+  padding: 4px;
+  text-align: center;
+`;
+
+
+export const Text2 = styled.p`
+  margin-top: 10px;
+  font-size: 30px;
+  color: #fff;
+  padding: 4px;
+  text-align: center;
+`;
+export const Custo = styled.p`
+  margin-top: 10px;
+  font-size: 50px;
   color: #fff;
   padding: 4px;
   text-align: center;
