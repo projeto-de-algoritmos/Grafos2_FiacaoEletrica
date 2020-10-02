@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.js": "/Grafos2_FiacaoEletrica/static/js/main.1ef4d3a2.chunk.js",
+    "main.js.map": "/Grafos2_FiacaoEletrica/static/js/main.1ef4d3a2.chunk.js.map",
+    "runtime-main.js": "/Grafos2_FiacaoEletrica/static/js/runtime-main.e8fb4a1d.js",
+    "runtime-main.js.map": "/Grafos2_FiacaoEletrica/static/js/runtime-main.e8fb4a1d.js.map",
+    "static/css/2.f45fb83f.chunk.css": "/Grafos2_FiacaoEletrica/static/css/2.f45fb83f.chunk.css",
+    "static/js/2.d5aa850c.chunk.js": "/Grafos2_FiacaoEletrica/static/js/2.d5aa850c.chunk.js",
+    "static/js/2.d5aa850c.chunk.js.map": "/Grafos2_FiacaoEletrica/static/js/2.d5aa850c.chunk.js.map",
+    "index.html": "/Grafos2_FiacaoEletrica/index.html",
+    "precache-manifest.5f00312999d95f8003a8e8074ba9a2b7.js": "/Grafos2_FiacaoEletrica/precache-manifest.5f00312999d95f8003a8e8074ba9a2b7.js",
+    "service-worker.js": "/Grafos2_FiacaoEletrica/service-worker.js",
+    "static/css/2.f45fb83f.chunk.css.map": "/Grafos2_FiacaoEletrica/static/css/2.f45fb83f.chunk.css.map",
+    "static/js/2.d5aa850c.chunk.js.LICENSE.txt": "/Grafos2_FiacaoEletrica/static/js/2.d5aa850c.chunk.js.LICENSE.txt",
+    "static/media/torre.png": "/Grafos2_FiacaoEletrica/static/media/torre.bbc62c83.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.e8fb4a1d.js",
+    "static/css/2.f45fb83f.chunk.css",
+    "static/js/2.d5aa850c.chunk.js",
+    "static/js/main.1ef4d3a2.chunk.js"
+  ]
+}

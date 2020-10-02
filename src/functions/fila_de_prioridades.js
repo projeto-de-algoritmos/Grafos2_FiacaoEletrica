@@ -1,4 +1,4 @@
-class Heap {
+export default class Heap {
   constructor() {
     this.fila_de_prioridades = []; // estrutura onde é armazenado de fato o array de prioridades
     this.estrutura_auxiliar = {}; // estrutura auxiliar que armazena a posição de um elemento no array de prioridades, para fazer buscas em O(1)
@@ -139,4 +139,3 @@ class Heap {
     console.log(this.fila_de_prioridades);
   }
 }
-module.exports = Heap;
