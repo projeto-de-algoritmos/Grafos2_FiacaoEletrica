@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Graph from 'react-graph-vis';
-import { Container, Menu, Text } from './styles';
+import { Container, Menu, Text, Text0, Text2, Custo } from './styles';
 import logo from '../../asserts/torre.png';
 import Grafo from '../../functions/grafo';
 
@@ -287,6 +287,9 @@ function Dashboard() {
   return (
     <Container>
       <Menu>
+        <Text0>
+          Cálculo de menor quantidade de quilômetros de fio
+        </Text0>
         <Text>
           Selecione os nós que deseja incluir no caminho, usando Ctrl+click
         </Text>
@@ -299,19 +302,21 @@ function Dashboard() {
         </button>
         {exemploSelect ? (
           <button type="submit" onClick={selectAll}>
-            Selecionar tudo e gerar grafo minimo
+            Selecionar todos e gerar árvore geradora minima
           </button>
         ) : (
           ''
         )}
         <button type="submit" onClick={CreateGraph}>
-          Gerar Menor caminho selecionado
+          Gerar árvore geradora mínima
         </button>
 
-        <Text>
-          {`Para percorrer o caminho selcionado , da melhor forma possivel, você
-            deve perccorer "${custo}" km`}
-        </Text>
+        <Text2>
+          {`Menor quilometragem possível:`}
+        </Text2>
+        <Custo>
+          {`"${custo}" km`}
+        </Custo>
       </Menu>
       <Graph graph={graph} options={options} events={events} />
     </Container>
