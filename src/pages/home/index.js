@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Graph from 'react-graph-vis';
 import { Container, Menu, Text } from './styles';
-
+import logo from '../../asserts/torre.png';
 import Grafo from '../../functions/grafo';
 
 function Dashboard() {
@@ -26,7 +26,12 @@ function Dashboard() {
       var from = Aleatorio(Aleatorio(1, tamanho - 1), tamanho - 1);
       var to = Aleatorio(1, tamanho - 1);
       var value = Aleatorio(1, 100);
-      node.push({ id: i, label: `Casa ${i}` });
+      node.push({
+        id: i,
+        shape: 'circularImage',
+        image: logo,
+        label: `Poste ${i}`,
+      });
       edge.push({
         from: from,
         to: to,
@@ -55,13 +60,13 @@ function Dashboard() {
       size: 10,
       color: {
         border: '#222222',
-        background: '#666666',
+        background: '#ffff',
         highlight: {
           border: '#000080',
           background: '#4682B4',
         },
       },
-      font: { color: '#eeeeee' },
+      font: { color: '#2f2f2f' },
     },
     edges: {
       color: 'lightgray',
@@ -99,10 +104,15 @@ function Dashboard() {
     var n = [];
     var e = [];
     //  ===========================
-    // adicona os nos para o Algoritmo de Prim
+    // adiciona os nos para o Algoritmo de Prim
     nodeSelect.map((no) => {
       grafo.adcVertice(`${no}`);
-      n.push({ id: no, label: `Casa ${no}` });
+      n.push({
+        id: no,
+        shape: 'circularImage',
+        image: logo,
+        label: `Poste ${no}`,
+      });
     });
     //==============================
 
@@ -170,14 +180,14 @@ function Dashboard() {
 
     setgraph({
       nodes: [
-        { id: 'A', label: 'A' },
-        { id: 'B', label: 'B' },
-        { id: 'C', label: 'C' },
-        { id: 'D', label: 'D' },
-        { id: 'E', label: 'E' },
-        { id: 'F', label: 'F' },
-        { id: 'G', label: 'G' },
-        { id: 'H', label: 'H' },
+        { id: 'A', label: 'A', shape: 'circularImage', image: logo },
+        { id: 'B', label: 'B', shape: 'circularImage', image: logo },
+        { id: 'C', label: 'C', shape: 'circularImage', image: logo },
+        { id: 'D', label: 'D', shape: 'circularImage', image: logo },
+        { id: 'E', label: 'E', shape: 'circularImage', image: logo },
+        { id: 'F', label: 'F', shape: 'circularImage', image: logo },
+        { id: 'G', label: 'G', shape: 'circularImage', image: logo },
+        { id: 'H', label: 'H', shape: 'circularImage', image: logo },
       ],
       edges: [
         { from: 'A', to: 'B', label: '4', id: '1' },
@@ -216,12 +226,12 @@ function Dashboard() {
 
     setgraph({
       nodes: [
-        { id: 'A', label: 'A' },
-        { id: 'B', label: 'B' },
-        { id: 'C', label: 'C' },
-        { id: 'D', label: 'D' },
-        { id: 'E', label: 'E' },
-        { id: 'F', label: 'F' },
+        { id: 'A', label: 'A', shape: 'circularImage', image: logo },
+        { id: 'B', label: 'B', shape: 'circularImage', image: logo },
+        { id: 'C', label: 'C', shape: 'circularImage', image: logo },
+        { id: 'D', label: 'D', shape: 'circularImage', image: logo },
+        { id: 'E', label: 'E', shape: 'circularImage', image: logo },
+        { id: 'F', label: 'F', shape: 'circularImage', image: logo },
       ],
       edges: [
         { from: 'A', to: 'B', label: '2', id: '1' },
