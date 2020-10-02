@@ -1,21 +1,21 @@
 class Heap {
     constructor() {
-
+  
         this.fila_de_prioridades = []; // estrutura onde é armazenado de fato o array de prioridades
         this.estrutura_auxiliar = {} // estrutura auxiliar que armazena a posição de um elemento no array de prioridades, para fazer buscas em O(1)
         this.quantidade = 0;
-
+  
     }
-
+  
     inserir(elemento) { // função para inserir elemento no heap
         let novo_elemento = {
             id: elemento, // identificação do vértice
             custo: Number.MAX_SAFE_INTEGER, // custo iniciando em "infinito",
             origem: '', // guardará o vertice pai desse elemento no heap, para ajudar na construção da arvore geradora mínima.
         }
-
+  
         this.fila_de_prioridades.push(novo_elemento);
-
+  
         this.estrutura_auxiliar[elemento] = { // armazenando a posição de onde o elemento foi adicionado no array
             posicao: this.quantidade,
         }
@@ -32,20 +32,20 @@ class Heap {
     atualizar_referencia(antes, depois) {
         this.estrutura_auxiliar[this.fila_de_prioridades[antes]['id']]['posicao'] = depois;
     }
-
+  
     atualizar_prioridades(elemento, novo_custo, origem) {
-
+  
         this.fila_de_prioridades[this.obter_posicao(elemento)]['origem'] = origem; // salvando de onde vem a aresta para este vértice, com o menor custo.
-
+  
         if(elemento == this.fila_de_prioridades[0]['id']) { // se o elemento a ser atualizado for igual ao elemento head do heap,
             if(novo_custo < this.fila_de_prioridades[0]['custo']) {  // é verificado qual custa menos
                 this.fila_de_prioridades[0]['custo'] = novo_custo; // se o novo custo for menor que o custo atual (do head) é feita a troca escolhendo o de menor custo. 
             }
             return;
         }
-
+  
         // abaixo começa o processo de subir no heap
-
+  
         let filho = this.obter_posicao(elemento); // filho recebe o indice do vetor atrelado ao elemento
         let custo_filho = novo_custo; 
         let pai = Math.floor((filho - 1) / 2); // para descobrir o pai de um vértice do heap, informação que será usada em caso de swap.
@@ -80,12 +80,12 @@ class Heap {
         let elemento_retirado = this.fila_de_prioridades[0]['id']; // salvando o elemento a ser retirado na variavel elemento_retirado
         let elemento = this.fila_de_prioridades.pop(); // retirando o ultimo elemento do array
         this.quantidade--;
-
-
+  
+  
         if(this.fila_de_prioridades.length === 0) { // se apos a retirada nao houverem elementos retorna o elemento retirado
           return elemento_retirado;
         }
-
+  
         // processo de trazer o ultimo elemento do array para o head (primeiro elemento do array)
         this.fila_de_prioridades[0]['id'] = elemento['id'];
         this.fila_de_prioridades[0]['custo'] = elemento['custo'];
@@ -97,7 +97,7 @@ class Heap {
         let filho = pai * 2 + 1; // selecionando o filho mais à esquerda
         
         let N = this.fila_de_prioridades.length;
-
+  
         while(filho < N) {
             if(filho < (N - 1)) { // verificar se o vertice tem um irmão
                 // se sim compara os custos dos dois e seleciona o de menor
@@ -106,7 +106,7 @@ class Heap {
                     filho++;
                 }
             }
-
+  
           if(this.fila_de_prioridades[pai]['custo'] < this.fila_de_prioridades[filho]['custo'])   
                 break;
           
@@ -128,4 +128,4 @@ class Heap {
         console.log(this.fila_de_prioridades);
     }
   
-}
+  }
