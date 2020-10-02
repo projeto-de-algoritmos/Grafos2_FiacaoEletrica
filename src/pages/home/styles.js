@@ -7,7 +7,7 @@ export const Container = styled.div`
   justify-content: center;
   align-items: center;
 `;
-export const Formulario = styled.div`
+export const Menu = styled.div`
   display: flex;
   flex-direction: column;
   form {
@@ -46,6 +46,7 @@ export const Formulario = styled.div`
   button {
     margin: 5px 0 0;
     height: 44px;
+    padding: 0 15px;
     background: #3b9eff;
     font-weight: bold;
     color: #fff;
