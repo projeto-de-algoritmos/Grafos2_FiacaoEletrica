@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Graph from 'react-graph-vis';
-import { Container, Menu } from './styles';
+import { Container, Menu, Text } from './styles';
 
 import Grafo from '../../functions/grafo';
 
 function Dashboard() {
   const grafo = new Grafo(); // instancia grafo
+  const [exemploSelect, setExemploSelect] = useState(false);
   const [nodeSelect, setNodeSelect] = useState();
   const [custo, setCusto] = useState(0);
   const [edge, setEdge] = useState([]);
@@ -148,6 +149,8 @@ function Dashboard() {
   //===============================================
   // funcçoes que carega exemplo da aula
   function Exemp1() {
+    setCusto(0);
+    setExemploSelect(true);
     setEdge([
       { from: 'A', to: 'B', label: '4', id: '1' },
       { from: 'A', to: 'C', label: '6', id: '2' },
@@ -197,6 +200,8 @@ function Dashboard() {
   // =======================================================
   //Exemplo 2
   function Exemp2() {
+    setCusto(0);
+    setExemploSelect(true);
     setEdge([
       { from: 'A', to: 'B', label: '2', id: '1' },
       { from: 'A', to: 'C', label: '3', id: '2' },
@@ -232,42 +237,73 @@ function Dashboard() {
     });
   }
 
+  //====================================================
+  // funçao que seleciona todos os elementos do grafo
+  function selectAll() {
+    const nodes = graph['nodes'];
+    var e = [];
+    graph['nodes'].map((no) => {
+      grafo.adcVertice(`${no['id']}`);
+    });
+    graph['edges'].map((ed) => {
+      grafo.adcAresta(
+        // adiona no grafro
+        `${ed['from']}`,
+        `${ed['to']}`,
+        parseInt(ed['label'], 10),
+        'nao_orientado'
+      );
+    });
+
+    grafo.prim(`${graph['nodes'][0]['id']}`); // inicia o algoritmo de prim, dizendo qual deve ser o no inical
+    var caminho = grafo.getCaminho(); // retona a lista de arestas de menor custo.
+    /// ===============================
+    // renderiza um novo grafro
+    caminho.map((Cami) => {
+      e.push({
+        from: Cami['origem'],
+        to: Cami['destino'],
+        label: `${Cami['custo']}`,
+      });
+    });
+    setgraph({
+      nodes: nodes,
+      edges: e,
+    });
+    //=================================
+    setCusto(grafo.getCusto()); // retorna o custo de percorrer determinado caminho
+  }
+
   return (
     <Container>
       <Menu>
-        <div>
-          <p>
-            Selecione os nós que deseja incluir no caminho, usando Ctrl+click
-          </p>
-        </div>
+        <Text>
+          Selecione os nós que deseja incluir no caminho, usando Ctrl+click
+        </Text>
+
         <button type="submit" onClick={Exemp1}>
           Exemplo de aula 1{' '}
         </button>
         <button type="submit" onClick={Exemp2}>
           Exemplo de aula 2
         </button>
+        {exemploSelect ? (
+          <button type="submit" onClick={selectAll}>
+            Selecionar tudo e gerar grafo minimo
+          </button>
+        ) : (
+          ''
+        )}
         <button type="submit" onClick={CreateGraph}>
-          Gerar Menor caminho
+          Gerar Menor caminho selecionado
         </button>
 
-        <div>
-          <p>
-            {`Para percorrer o caminho selcionado , da melhor forma possivel, você
+        <Text>
+          {`Para percorrer o caminho selcionado , da melhor forma possivel, você
             deve perccorer "${custo}" km`}
-          </p>
-        </div>
+        </Text>
       </Menu>
-      <Graph
-        graph={graph}
-        options={options}
-        events={events}
-        getNetwork={(network) => {
-          //  if you want access to vis.js network api you can set the state in a parent component using this property
-          {
-            console.log(network);
-          }
-        }}
-      />
+      <Graph graph={graph} options={options} events={events} />
     </Container>
   );
 }
