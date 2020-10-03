@@ -87,9 +87,23 @@ Ao abrir o projeto no navegador com o link acima, automaticamente é gerado um g
 
 Nesse caso aparece a opção de selecionar todos os nós e gerar a árvore a partir deles (apertando em: Selecionar todos e gerar árvore geradora minima), mas também pode ser selecionado uma a um.
 
+Essa imagem acima é um gabarito das árvores geradoras geradas pelos exemplo 1 e 2. Conforme é visto em [screenshots](##screenshots), vimos que a árvore gerada na imagem 4 é a mesma que a gerada no exemplo 1 e o mesmo acontece para a árvore gerada na imagem 6 com o exemplo 2.
+
 ## Outros 
-Quaisquer outras informações sobre seu projeto podem ser descritas abaixo.
+**Um pouco sobre a implementação do algoritmo de Prim.**
+
+Tivemos algumas dificuldades para esta implementação, pois não sabíamos como achar o elemento na fila de prioridades com custo de operação O(1). Mas na live de dúvidas com o professor Maurício ele esclareceu que para resolver este problema, teria que ser criado uma estrutura auxiliar para armazenar o valor dos "ponteiros" para cada elemento, permitindo, assim, o acesso com custo de operação O(1).
+Acreditamos que esteja na versão ótima, pois foi baseado no pseudo-código do professor para alcançar o custo de O(m log n).
+
+**Foi implementada uma estrutura Heap(fila de prioridades)**
+
+Algumas dificuldades foram encontradas para a implementação do algoritmo para gerenciar um heap. Foi utilizada como auxílio para a nossa versão as referências abaixo.
 
 
+**Referências**
 
+* Video aula 13 - Grafos 2 - Professor Maurício Serrano
 
+*  Fila de Prioridades - Heap Binária. Linguagem C Descomplicada. Disponível em: https://www.youtube.com/watch?v=o138_fb85zk
+
+* Filas de prioridade e heap. Disponível em: https://www.ic.unicamp.br/~rafael/cursos/2s2018/mc202/slides/unidade21-fila-de-prioridade.pdf
