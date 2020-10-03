@@ -13,6 +13,8 @@
 
 Pode ser acessado no link: https://projeto-de-algoritmos.github.io/Grafos2_FiacaoEletrica/
 
+Link para o vídeo explicativo: https://www.youtube.com/watch?v=RVtvnRWul3M&feature=youtu.be
+
 O projeto implementa o algoritmo de Prim (boa implementação), que ajuda uma companhia elétrica a gastar menos com fiação. Os vértices serão como os postes e as arestas como a fiação. A partir do grafo gerado é gerada a árvore geradora mínima que contabiliza o menor custo para abranger todos os postes com a menor quantidade de fio.
 
 ## Screenshots
@@ -39,13 +41,14 @@ Imagem 5 - [Exemplo 2](###exemplos) da aula:
 
 ![imagem_do_exemplo_2](midia/screenshots/exemplo2.png)
 
-Imagem 6 - [Exemplo 2](###exemplos) da aula:
+Imagem 6 - Após clicar em Selecionar todos e gerar árvore geradora mínima. [Exemplo 2](###exemplos) da aula:
 
 ![imagem_do_exemplo_2_resolvido](midia/screenshots/exemplo2_arvore.png)
 
 ## Instalação 
 **Linguagem**: Javascript<br>
 **Framework**: React<br>
+**Pacotes** : react-graph-vis
 
 Primeiramente utilizaremos a ferramenta [git](https://git-scm.com/downloads) que é necessária para clonar o repositório:
 
@@ -74,7 +77,7 @@ E então acessar no navegador:
     http://localhost:3000/
 
 ## Uso 
-Ao abrir o projeto no navegador com o link acima, automaticamente é gerado um grafo aleatório onde é possível selecionar os vértices(representando os postes) e arestas(representando os fios) apertando (Ctrl + Click), **onde só devera ser selecionado as arestas entre os vértices selecionados**. Devido a limitações da biblioteca, quando um nó é selecionado ele seleciona as arestas para os nós vizinhos desse nó, por essa questão deve se excluir as arestas para os nós que não serão selecionados. Um exemplo de correta utilização pode ser visto nas [screenshots](##screenshots) ou no [vídeo]().
+Ao abrir o projeto no navegador com o link acima, automaticamente é gerado um grafo aleatório onde é possível selecionar os vértices(representando os postes) e arestas(representando os fios) apertando (Ctrl + Click), **onde só devera ser selecionado as arestas entre os vértices selecionados**. Devido a limitações da biblioteca, quando um nó é selecionado ele seleciona as arestas para os nós vizinhos desse nó, por essa questão deve se excluir as arestas para os nós que não serão selecionados. Um exemplo de correta utilização pode ser visto nas [screenshots](##screenshots) ou no [vídeo](https://www.youtube.com/watch?v=RVtvnRWul3M&feature=youtu.be).
 
 ### Exemplos
 
