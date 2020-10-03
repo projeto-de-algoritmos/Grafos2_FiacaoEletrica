@@ -180,14 +180,14 @@ function Dashboard() {
 
     setgraph({
       nodes: [
-        { id: 'A', label: 'A', shape: 'circularImage', image: logo },
-        { id: 'B', label: 'B', shape: 'circularImage', image: logo },
-        { id: 'C', label: 'C', shape: 'circularImage', image: logo },
-        { id: 'D', label: 'D', shape: 'circularImage', image: logo },
-        { id: 'E', label: 'E', shape: 'circularImage', image: logo },
-        { id: 'F', label: 'F', shape: 'circularImage', image: logo },
-        { id: 'G', label: 'G', shape: 'circularImage', image: logo },
-        { id: 'H', label: 'H', shape: 'circularImage', image: logo },
+        { id: 'A', label: 'Poste A', shape: 'circularImage', image: logo },
+        { id: 'B', label: 'Poste B', shape: 'circularImage', image: logo },
+        { id: 'C', label: 'Poste C', shape: 'circularImage', image: logo },
+        { id: 'D', label: 'Poste D', shape: 'circularImage', image: logo },
+        { id: 'E', label: 'Poste E', shape: 'circularImage', image: logo },
+        { id: 'F', label: 'Poste F', shape: 'circularImage', image: logo },
+        { id: 'G', label: 'Poste G', shape: 'circularImage', image: logo },
+        { id: 'H', label: 'Poste H', shape: 'circularImage', image: logo },
       ],
       edges: [
         { from: 'A', to: 'B', label: '4', id: '1' },
@@ -226,12 +226,12 @@ function Dashboard() {
 
     setgraph({
       nodes: [
-        { id: 'A', label: 'A', shape: 'circularImage', image: logo },
-        { id: 'B', label: 'B', shape: 'circularImage', image: logo },
-        { id: 'C', label: 'C', shape: 'circularImage', image: logo },
-        { id: 'D', label: 'D', shape: 'circularImage', image: logo },
-        { id: 'E', label: 'E', shape: 'circularImage', image: logo },
-        { id: 'F', label: 'F', shape: 'circularImage', image: logo },
+        { id: 'A', label: 'Poste A', shape: 'circularImage', image: logo },
+        { id: 'B', label: 'Poste B', shape: 'circularImage', image: logo },
+        { id: 'C', label: 'Poste C', shape: 'circularImage', image: logo },
+        { id: 'D', label: 'Poste D', shape: 'circularImage', image: logo },
+        { id: 'E', label: 'Poste E', shape: 'circularImage', image: logo },
+        { id: 'F', label: 'Poste F', shape: 'circularImage', image: logo },
       ],
       edges: [
         { from: 'A', to: 'B', label: '2', id: '1' },
@@ -312,7 +312,7 @@ function Dashboard() {
         </button>
 
         <Text2>
-          {`Menor quilometragem possível:`}
+          {`Menor quilometragem de fio possível:`}
         </Text2>
         <Custo>
           {`"${custo}" km`}
