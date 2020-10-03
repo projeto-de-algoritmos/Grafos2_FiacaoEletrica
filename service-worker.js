@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/Grafos2_FiacaoEletrica/precache-manifest.3fb1423536f0bf4a3a00124f284ade05.js"
+  "/Grafos2_FiacaoEletrica/precache-manifest.656b99c06f281b9091d2ef9ef7fe4540.js"
 );
 
 self.addEventListener('message', (event) => {
